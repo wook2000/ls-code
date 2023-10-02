@@ -1,6 +1,6 @@
 # Introduction to Programming with Ruby
 # Chapter 1 - The Basics
-# Exercise 6
+# Exercise 7
 
 =begin
 The following error message has been generated:

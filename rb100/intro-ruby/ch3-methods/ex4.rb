@@ -4,6 +4,7 @@
 
 def scream(words)
   words = words + "!!!!"
+  return
   puts words
 end
 
@@ -12,5 +13,7 @@ p a
 
 =begin
 The above code doesn't print anything to the screen.  This is because the
-explicit return exits the method before hitting the "puts" command.  
+explicit return exits the method before hitting the "puts" command.  In
+this case, scream("Yippeee") returns nil, as the explicit return doesn't
+return anything. 
 =end

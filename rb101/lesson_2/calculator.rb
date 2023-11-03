@@ -8,8 +8,8 @@
 
 Kernel.puts("Welcome to Calculator!")
 
-Kernal.puts("What's the first number?")
-number 1 = Kernel.gets().chomp()
+Kernel.puts("What's the first number?")
+number1 = Kernel.gets().chomp()
 
 Kernel.puts("What's the second number?")
 number2 = Kernel.gets().chomp()
@@ -27,4 +27,4 @@ else
   result = number1.to_f() / number2.to_f()
 end
 
-Kernel.puts("The result is #(result)")
+Kernel.puts("The result is #{result}")

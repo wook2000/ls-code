@@ -1,0 +1,86 @@
+en:
+  welcome: "Welcome to Calculator! Enter your name:"
+  valid_name: "Make sure to enter a valid name."
+  hello: "Hello,"
+  begin: "Let's perform a calculation."
+  first_number: "What's the first number?"
+  second_number: "What's the second number?"
+  valid_number: "Hmm... that doesn't look like a valid number."
+  operator_prompt: |
+    What operation would you like to perform?
+        1) Add
+        2) Subtract
+        3) Multiply
+        4) Divide
+  valid_operator: "Must choose 1, 2, 3, or 4"
+  adding: "Adding"
+  subtracting: "Subtracting"
+  multiplying: "Multiplying"
+  dividing: "Dividing"
+  two_numbers: "the two numbers..."
+  result: "The result is"
+  zero_divide: "You can't divide by zero!"
+  another_calc: "Do you want to perform another calculation? (Y to calculate again)"
+  again: "y"
+  thank_you: "Thank you for using the calculator,"
+  bye: "Goodbye!"
+  language_prompt: |
+    Available Languages / Idiomas Disponibles / Lingue Disponibili:
+        'en' => English
+        'es' => Español
+        'it' => Italiano
+    Please select / Por favor seleccione / Seleziona:
+  valid_language: "Not a valid language / No es un idioma válido / Non è una lingua valida"
+  select_language: "Please select / Por favor seleccione / Seleziona:"
+es:
+  welcome: "Bienvenido a la calculadora! Entre su nombre:"
+  valid_name: "Asegúrese de entrar un nombre válido."
+  hello: "Hola,"
+  begin: "Hagamos un calculo."
+  first_number: "Cual es el primer número?"
+  second_number: "Cual es el segundo número?"
+  valid_number: "Hmm... ese no parece un número válido."
+  operator_prompt: |
+    ¿Qué operación te gustaría realizar?
+        1) Sumar
+        2) Restar
+        3) Multiplicar
+        4) Dividiendo
+  valid_operator: "Debe elegir 1, 2, 3, o 4"
+  adding: "Sumando"
+  subtracting: "Restando"
+  multiplying: "Multiplicando"
+  dividing: "Dividiendo"
+  two_numbers: "los dos números..."
+  result: "El resultado es"
+  zero_divide: "¡No puedes dividir por cero!"
+  another_calc: "¿Quieres hacer otro cálculo? (S para calcular nuevamente)"
+  again: "s"
+  thank_you: "Gracias por usar la calculadora,"
+  bye: "Adiós!"
+it:
+  welcome: "Benvenuto in Calcolatrice! Inserisci il tuo nome:"
+  valid_name: "Assicurati di inserire un nome valido"
+  hello: "Ciao,"
+  begin: "Facciamo un calcolo."
+  first_number: "Qual è il primo numero?"
+  second_number: "Qual è il secondo numero?"
+  valid_number: "Hmm... non sembra un numero valido."
+  operator_prompt: |
+    Quale operazione vorresti eseguire?
+        1) Aggiungere
+        2) Sottrarre
+        3) Moltiplicare
+        4) Dividere
+  valid_operator: "Deve scegliere 1, 2, 3, o 4"
+  adding: "Sommando i"
+  subtracting: "Sottrazione dei"
+  multiplying: "Moltiplicando i"
+  dividing: "Dividere i"
+  two_numbers: "due numeri..."
+  result: "Il risultato è"
+  zero_divide: "Non puoi dividere per zero!"
+  another_calc: "Vuoi fare un altro calcolo? (S per calcolare di nuovo)"
+  again: "s"
+  thank_you: "Grazie per aver utilizzato la calcolatrice,"
+  bye: "Ciao!"

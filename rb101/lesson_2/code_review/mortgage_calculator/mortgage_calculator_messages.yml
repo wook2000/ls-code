@@ -1,0 +1,58 @@
+welcome: "Welcome to the Mortgage Calculator! Please enter your name:"
+valid_name: "Make sure to enter a valid name!"
+hello: "Hello,"
+description: |
+  You're looking for a new home of your own!  How exciting!  Or at least,
+  it should be all about the excitement of your upcoming next chapter of
+  life...  But, we know how the homebuying experience can be filled with
+  nervousness, stress, and perhaps even a bit of sadness and disappointment.
+  Unfortunately, we don't have a magic wand to sweep away all the negative
+  aspects of the homebusying experience, but we can at least provide
+  you with some transparency as to how much a home purchase will cost you
+  in terms that actually carry meaning in your day-to-day life.
+
+  It's not easy trying to translate a big number with lots of zeroes at
+  the end into a manageable number that helps you imagine the addition
+  of a mortgage payment into your budget.  But don't worry, that's where
+  we can help.  With this Mortgage Calculator, just tells us the a) Loan
+  Amount, b) Annual Percentage Rate (APR), and c) Loan Duration and we
+  will help you understand the impact on your monthly budget.
+
+  Shall we get started?
+continue: "Please press enter/return to continue:"
+get_started: "Let's get going,"
+amount1: "First, let's look at how much you'll need to borrow."
+amount2: |
+  What is your expected loan amount?  (You don't have to use the '$' sign
+  when you enter the loan amount!)
+valid_number: "Hmm... that doesn't look like a valid number.  Let's try again."
+apr1: |
+  Excellent!  Now, let's take into account the interest rate that you
+  qualified for from the lender (or are looking to get from the lender,
+  fingers crossed!)
+apr2: |
+  What annual percentage rate (APR) for the mortgage loan should we use
+  to calculate the monthly payments?  (Please enter the number as a
+  percentage.  You don't need to include the '%' sign!)
+duration1: |
+  Lastly, we need to understand the mortgage term you are looking at.
+  A mortgage term is the number of years you have to pay off your mortgage.
+  A mortgage can typically be as long as 30 year and as short as 10 years.
+duration2: |
+  In how many years would you like to have your mortgage paid off?  (Please
+  enter the loan duration in years!)
+pause: "Calculating..."
+results_overview: "And it's that simple!  For a mortgage loan with the following terms:"
+results_amount: "Desired loan amount:"
+results_apr: "Qualified interest rate (APR):"
+results_duration: "Repayment period:"
+results_payment: "Your monthly payment would be"
+another_calc: |
+  Would you like to calculate monthly payments for different loan conditions?
+  (Y to calculate again)
+exit: |
+  Thank you for using the Mortgage Calculator!  We hope that 
+  this service was able to provide you with the insights you were 
+  looking for.  
+
+  Good luck with the remainder of your homebuying experience!

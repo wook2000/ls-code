@@ -1,0 +1,111 @@
+welcome: |
+  MWAH-HA-HA!!!
+  
+  Welcome to ROPSSLI!  This is a game NOT for the faint of heart.
+  Get ready to stretch your feeble mind, but first let me know who
+  dares challenge me!
+
+  Tell me your name:
+valid_name: |
+  You cannot hide your name from me! Let yourself be known!
+
+  Tell me your name, seriously:
+hello: "MWAH-HA-HA!!!  I welcome you,"
+description: |
+  My name is not of this world and you will not be able to understand it
+  with your human brain, so you may simply call me "Guardian".
+
+  I stand between you and the priceless secrets of another dimension.
+  Do you believe yourself worthy of the knowledge and wisdom?  If so,
+  all you have to do is beat me at my own game.
+
+  You may have heard of a game called Rock-Paper-Scissors, and you may
+  think yourself a master of the game.  BAH-HA-HA!!!  Mere child's play!
+  Today, you must learn to incorporate 2 more options, "Spock" and "Lizard".
+
+  You might be thinking, "What the heck???"  Let me explain:
+
+  Scissors cuts Paper covers Rock crushes Lizard poisons Spock smashes
+  Scissors decapitates Lizard eats Paper disproves Spock vaporizes Rock
+  crushes Scissors.
+
+  Got it?  No??  Fine.  If you need me to spell it out in even more simple
+  terms...
+
+    Rock bests both Scissors and Lizard
+    Paper bests both Rock and Spock
+    Scissors best both Paper and Lizard
+    Lizard bests both Paper and Spock
+    Spock bests both Rock and Scissors
+
+  MWAH-HA-HA!!!  You hardly stand a chance.  But it seems you are determined
+  to try.  So then, let's test your abilities and see if you are worthy
+  of the enlightment that lies beyond.
+continue: "Go ahead, slam that return/enter key to continue!"
+get_started: |
+  Ah-ha!  You must be one of those that do not easily scare.  And for that,
+  You have earned a tiny bit of respect from me.  As such, I will let you
+  determine how many rounds we will go before you come to your senses that
+  you will never be able to pass through me.
+game_length: Choose your torture level - how many rounds shall we go?
+game_length_too_long: |
+  Silly human.  I do not have the patience to see you lose that many
+  times.  How about you try again?
+game_length_no_evens: |
+  Silly human.  I do not play with the possibility of a draw.  We can
+  only play an odd number of rounds.  How about you try again?
+game_length_fraction: |
+  Silly human.  We are not here to split a pie into pieces.  We can only
+  play a whole number of rounds.  How about you try again?
+game_length_not_number: |
+  Silly human.  When I ask you "how MANY rounds", I expect you to give me
+  a proper number.  How about you try again?
+game_length_zero: |
+  Silly human.  Do you seriously think I will just let you by without
+  any effort on your part?  How about you try again?
+game_length_negative: |
+  Silly human.  Negative rounds exist in my dimension, but not in the one
+  we are currently in.  How about you try again?
+game_length_one: "round it is.  Great for me since I can't waste my time on you."
+game_length_multiple: "rounds it is.  You like to be tortured, don't you?"
+instruction: |
+  Remember, here are the selection options you can choose from:
+
+    Rock  |  Paper  |  Scissors  |  Lizard  |  Spock
+
+  You can type in the full word to make a selection, or if you feel that
+  you are in a rush, feel free to type in part of the word and I'll
+  understand.  Beware, "Scissors" and "Spock" both start with "S", so
+  make your choice clear!
+player_selection: "So, what will it be?  Let your choice be known!"
+valid_choice: "Are you playing games with me?  Make a proper selection!"
+scissors_spock: |
+  I warned you that there are two choices that start with "S"!
+  Make a proper selection!
+result_player: "Somehow, you won this round.  Accidents do happen..."
+result_guardian: |
+  Of course, I won this round!
+  MWAH-HA-HA!!!  Did you actually expect a different result??"
+result_tie: "Hmm...  You are just delaying the inevitable."
+challenge: "you were audacious enough to challenge me for access to a world beyond."
+best_of: "Best of"
+rounds: "rounds you wanted to go..."
+obtain: "And having obtained a total of"
+win: "wins..."
+player_win: |
+  Access to the dimension you shall receive.  Go forth and learn the
+  secrets of the universe!"
+guardian_win: |
+  You should realize that you are not worthy of the secrets of the universe.
+  Do not fret.  You join a great many humans who also could not get past me.
+play_again: |
+  The door to the dimension is now closing, but I sense a different door
+  to another dimension, containing a new batch of secrets, is opening up.
+  Do you want to entertain me one more time?
+
+  Press 'Y' if you believe yourself worthy!
+player_choice: "In this round, you decided on"
+guardian_choice: "While I went with"
+exit: |
+  You've had enough, I see.  Understandable.  Should you ever feel the
+  urge to challenge me again, you know where to find me.  Be gone for now.

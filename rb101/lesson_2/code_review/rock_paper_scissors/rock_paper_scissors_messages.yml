@@ -48,26 +48,26 @@ get_started: |
   determine how many rounds we will go before you come to your senses that
   you will never be able to pass through me.
 game_length: Choose your torture level - how many rounds shall we go?
-game_length_too_long: |
+length_too_long: |
   Silly human.  I do not have the patience to see you lose that many
   times.  How about you try again?
-game_length_no_evens: |
+length_no_evens: |
   Silly human.  I do not play with the possibility of a draw.  We can
   only play an odd number of rounds.  How about you try again?
-game_length_fraction: |
+length_fraction: |
   Silly human.  We are not here to split a pie into pieces.  We can only
   play a whole number of rounds.  How about you try again?
-game_length_not_number: |
+length_not_number: |
   Silly human.  When I ask you "how MANY rounds", I expect you to give me
   a proper number.  How about you try again?
-game_length_zero: |
+length_zero: |
   Silly human.  Do you seriously think I will just let you by without
   any effort on your part?  How about you try again?
-game_length_negative: |
+length_negative: |
   Silly human.  Negative rounds exist in my dimension, but not in the one
   we are currently in.  How about you try again?
-game_length_one: "round it is.  Great for me since I can't waste my time on you."
-game_length_multiple: "rounds it is.  You like to be tortured, don't you?"
+length_one: "round it is.  Great for me since I can't waste my time on you."
+length_multiple: "rounds it is.  You like to be tortured, don't you?"
 instruction: |
   Remember, here are the selection options you can choose from:
 

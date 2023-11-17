@@ -12,21 +12,20 @@ def clear_terminal
   system("clear") || system("cls")
 end
 
-def display_prompt(text)
+def prompt(text)
   puts "=> #{text}"
 end
 
-def fetch_yaml_message(message_option)
+def fetch_yaml(message_option)
   MESSAGES[message_option]
 end
 
 def welcome_user(user)
-  display_prompt(fetch_yaml_message('welcome'))
+  prompt(fetch_yaml('welcome'))
   get_user_name(user)
   clear_terminal
-  display_prompt("#{fetch_yaml_message('hello')} #{user}!")
-  display_prompt(fetch_yaml_message('description'))
-  display_prompt(fetch_yaml_message('continue'))
+  prompt("#{fetch_yaml('hello')} #{user}!")
+  prompt(fetch_yaml('description'))
   return_to_continue
 end
 
@@ -34,7 +33,7 @@ def get_user_name(name)
   loop do
     name.replace(gets.chomp)
     if not_valid_string?(name)
-      display_prompt((fetch_yaml_message('valid_name')))
+      prompt((fetch_yaml('valid_name')))
     else
       break
     end
@@ -46,42 +45,39 @@ def not_valid_string?(str)
 end
 
 def return_to_continue
+  prompt(fetch_yaml('continue'))
   gets
 end
 
 def set_game_length(rounds)
-  display_prompt(fetch_yaml_message('get_started'))
+  prompt(fetch_yaml('get_started'))
   get_game_length(rounds)
   if rounds.to_i == 1
-    display_prompt("#{rounds} #{fetch_yaml_message('game_length_one')}")
+    prompt("#{rounds} #{fetch_yaml('length_one')}")
   else
-    display_prompt("#{rounds} #{fetch_yaml_message('game_length_multiple')}")
+    prompt("#{rounds} #{fetch_yaml('length_multiple')}")
   end
-  display_prompt(fetch_yaml_message('continue'))
   return_to_continue
 end
 
 def get_game_length(rounds)
   loop do
-    display_prompt(fetch_yaml_message('game_length'))
-    rounds.replace(gets.chomp)
-    if not_number?(rounds)
-      display_prompt(fetch_yaml_message('game_length_not_number'))
-    elsif negative_number?(rounds)
-      display_prompt(fetch_yaml_message('game_length_negative'))
-    elsif zero?(rounds)
-      display_prompt(fetch_yaml_message('game_length_zero'))
-    elsif fraction?(rounds)
-      display_prompt(fetch_yaml_message('game_length_fraction'))
-    elsif too_big_number?(rounds)
-      display_prompt(fetch_yaml_message('game_length_too_long'))
-    elsif even?(rounds)
-      display_prompt(fetch_yaml_message('game_length_no_evens'))
+    input_game_length(rounds)
+    if not_number?(rounds) then prompt(fetch_yaml('length_not_number'))
+    elsif negative_number?(rounds) then prompt(fetch_yaml('length_negative'))
+    elsif zero?(rounds) then prompt(fetch_yaml('length_zero'))
+    elsif fraction?(rounds) then prompt(fetch_yaml('length_fraction'))
+    elsif too_big_number?(rounds) then prompt(fetch_yaml('length_too_long'))
+    elsif even?(rounds) then prompt(fetch_yaml('length_no_evens'))
     else
       break
     end
   end
+end
 
+def input_game_length(rounds)
+  prompt(fetch_yaml('game_length'))
+  rounds.replace(gets.chomp)
 end
 
 def not_number?(input)
@@ -113,7 +109,7 @@ def too_big_number?(input)
 end
 
 def even?(input)
-  input.to_f % 2 == 0
+  input.to_i.even?
 end
 
 def play_game(name, rounds, score_hash)
@@ -122,18 +118,25 @@ def play_game(name, rounds, score_hash)
     player_choice = ''
     guardian_choice = ''
     clear_terminal
-    display_prompt(fetch_yaml_message('instruction'))
-    display_scores(name, 'Guardian', round_count, rounds, score_hash)
-    get_player_choice(player_choice)
-    get_guardian_choice(guardian_choice)
+    display_game_interface(name, round_count, rounds, score_hash)
+    get_game_choices(player_choice, guardian_choice)
     victor = determine_winner(player_choice, guardian_choice)
     update_scores(victor, score_hash)
     display_round_result(victor, player_choice, guardian_choice)
-    display_prompt(fetch_yaml_message('continue'))
     return_to_continue
     round_count += 1 unless victor == 'tie'
     break unless round_count <= rounds.to_i
   end
+end
+
+def display_game_interface(name, round_count, rounds, score_hash)
+  prompt(fetch_yaml('instruction'))
+  display_scores(name, 'Guardian', round_count, rounds, score_hash)
+end
+
+def get_game_choices(player_choice, guardian_choice)
+  get_player_choice(player_choice)
+  get_guardian_choice(guardian_choice)
 end
 
 def display_scores(player1, player2, current_round, total_rounds, score_hash)
@@ -148,20 +151,20 @@ end
 
 def get_player_choice(selection)
   loop do
-    display_prompt(fetch_yaml_message('player_selection'))
+    prompt(fetch_yaml('player_selection'))
     input = gets.chomp.downcase
     shortened_choices = PLAYER_CHOICES.map { |choice| choice[0, input.size] }
     if not_valid_string?(input)
-      display_prompt(fetch_yaml_message('valid_choice'))
+      prompt(fetch_yaml('valid_choice'))
       next
     elsif input == 's'
-      display_prompt(fetch_yaml_message('scissors_spock'))
+      prompt(fetch_yaml('scissors_spock'))
       next
     elsif shortened_choices.include?(input)
       selection.replace(PLAYER_CHOICES[shortened_choices.find_index(input)])
       break
     else
-      display_prompt(fetch_yaml_message('valid_choice'))
+      prompt(fetch_yaml('valid_choice'))
     end
   end
 end
@@ -189,52 +192,48 @@ def update_scores(result, score_hash)
 end
 
 def display_round_result(result, selection1, selection2)
-  display_prompt("#{fetch_yaml_message('player_choice')} #{selection1}.")
-  display_prompt("#{fetch_yaml_message('guardian_choice')} #{selection2}.")
+  prompt("#{fetch_yaml('player_choice')} #{selection1}.")
+  prompt("#{fetch_yaml('guardian_choice')} #{selection2}.")
   if result == 'player1'
-    display_prompt(fetch_yaml_message('result_player'))
+    prompt(fetch_yaml('result_player'))
   elsif result == 'player2'
-    display_prompt(fetch_yaml_message('result_guardian'))
+    prompt(fetch_yaml('result_guardian'))
   else
-    display_prompt(fetch_yaml_message('result_tie'))
+    prompt(fetch_yaml('result_tie'))
   end
 end
 
 def display_final_results(name, rounds, score_hash)
-  winner = (score_hash[:player_score] > score_hash[:guardian_score]) ? name : 'guardian'
-  display_prompt("#{name}, #{fetch_yaml_message('challenge')}.")
-  display_prompt("#{fetch_yaml_message('best_of')} #{rounds} #{fetch_yaml_message('rounds')}" )
-  display_prompt("#{fetch_yaml_message('obtain')} #{score_hash[:player_score]} #{fetch_yaml_message('win')}" )
+  winner = score_hash[:player_score] > score_hash[:guardian_score] ? name : 'guardian'
+  prompt("#{name}, #{fetch_yaml('challenge')}.")
+  prompt("#{fetch_yaml('best_of')} #{rounds} #{fetch_yaml('rounds')}")
+  prompt("#{fetch_yaml('obtain')} #{score_hash[:player_score]} #{fetch_yaml('win')}")
   if winner == name
-    display_prompt(fetch_yaml_message('player_win'))
+    prompt(fetch_yaml('player_win'))
   else
-    display_prompt(fetch_yaml_message('guardian_win'))
+    prompt(fetch_yaml('guardian_win'))
   end
-  display_prompt(fetch_yaml_message('continue'))
   return_to_continue
 end
 
-def play_again?()
-  display_prompt(fetch_yaml_message('play_again'))
+def play_again?
+  prompt(fetch_yaml('play_again'))
   gets.chomp.downcase
 end
 
-def exit_game()
-  display_prompt(fetch_yaml_message('exit'))
+def exit_game
+  prompt(fetch_yaml('exit'))
 end
 
 # Main calculator program
 def rock_paper_scissors_program
   user_name = ''
-
   clear_terminal
   welcome_user(user_name)
   loop do
     number_of_rounds = ''
     score_tally = { player_score: 0,
                     guardian_score: 0 }
-    winner = ''
-  
     clear_terminal
     set_game_length(number_of_rounds)
     play_game(user_name, number_of_rounds, score_tally)

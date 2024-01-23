@@ -1,0 +1,83 @@
+welcome: |
+  HA HA HA!~
+
+  It is good to see you again!  It is I, the one known as "Guardian".  Your
+  defeat at ROPSSLI, what you may know as Rock-Paper-Scissors, has not
+  deterred you from seeking out new challenges!  I commend you for that
+  adventurous spirit!
+
+  Today, you have an opportunity to unlock the constraints that have been
+  placed on your feeble mind so that you can see the world for what it
+  really is.  But first, remind me, what is your name?  I have an eye for
+  faces, but I seem to have a mental block with names.  (Beware, I do not 
+  tolerate well any jokes about the irony of this situation here...)
+
+  Tell me your name:
+valid_name: |
+  I may not remember thy Earthly name, but I do possess the ability to 
+  detect deception!  I am from a superior dimension, after all...
+
+  Tell me your name, seriously:
+hello: "That's right!  Now I remember.  I welcome you,"
+description: |
+  So, I see you are interested in bettering yourself, enhancing your mind,
+  discovering more about this world.  Bravo!
+
+  All that stands in your way is this challenge that is known in your dimension
+  as Tic-Tac-Toe.  Place your mark straight across the grid, if you can, and you
+  win the round.  Best me 3 times and you shall receive your enlightenment.
+continue: "Go ahead, press that return/enter key to continue!"
+description2: |
+  You know Tic-Tac-Toe to be a game with a 3x3 grid.  But did you assume that 
+  things will be so simple when you come face-to-face with the Guardian?  You
+  should have learned during out last encounter.
+
+  Of course, you can play on a simple 3x3 grid, but with simplicity comes minimal
+  rewards.  You want to know what's inside that sphere on top of your shoulders, 
+  you have to work for it.  Today, we can change the grid size, on a sliding scale
+  from 3x3 to 9x9, with the greatest reward coming from besting me on the 9x9 grid!
+
+  For games on a grid size 6x6 and beyond, you have the option to dial-a-friend
+  for help!  Never say that I do not keep up with the times.  You and a friend will
+  play me 2 moves to 1 but know that your reward will be diminished due to your
+  show of weakness.
+set_grid: |
+
+zero: |
+
+grid_size: 
+size_too_small: |
+
+size_too_big: |
+
+number_of_players:
+too_few_players: |
+
+too_many_players: |
+
+game_marker: |
+
+invisible_marker: |
+
+instruction: |
+
+player_selection: "Go ahead.  Choose a square!"
+valid_selection: |
+  Are you here to play games, or are you here to actually play this GAME??
+  Make a proper selection!
+round_player: "A round to you.  Let's see if you can keep this up!"
+round_guardian: "No surprises here.  Let's see if you can do better!"
+round_tie: "Ah!  I applaud your strategic defense.  Let's go again!"
+player_win: "Congraulations on your win!  Now, I will unlock thy mind, "
+guardian_win: |
+  And so I win.  But what did you expect?  I am the Guardian, after all!
+play_again: |
+  The opportunity to unlock the secrets inside yourself is now coming to a
+  close.  But, I seem to have some extra time on my hands.  Would you like
+  another shot at enlarging that tiny brain of yours?
+
+  Press 'Y' if you feel up to the challenge!
+exit: |
+  You've had enough, I see.  Understandable.  Should you ever feel the 
+  urge to challenge yourself, I'm certain you'll find me again.  Be gone
+  for now.

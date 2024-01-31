@@ -96,11 +96,10 @@ class Board
     !markers.any?(Square::INITIAL_MARKER) && markers.all?(markers.first)
   end
 
-  def opportunity_square(squares_hash,line, marker)
+  def opportunity_square(squares_hash, line, marker)
     markers = squares_hash.values_at(*line).map(&:marker)
-    if markers.count(marker) == 2
-      line.select{ |key| squares_hash[key].marker != marker }.first
-    end
+    return unless markers.count(marker) == 2
+    line.select { |key| squares_hash[key].marker != marker }.first
   end
 end
 
@@ -180,8 +179,7 @@ class Human < Player
   end
 
   def moves
-    prompt(fetch_yaml('choose_square'))
-    prompt("#{joinor(board.unmarked_keys)}")
+    display_board_choice
     square = nil
     loop do
       square = gets.chomp.to_i
@@ -200,6 +198,11 @@ class Human < Player
       arr[-1] = "#{word} #{arr.last}"
       arr.join(delimiter)
     end
+  end
+
+  def display_board_choice
+    prompt(fetch_yaml('choose_square'))
+    prompt(joinor(board.unmarked_keys))
   end
 end
 
@@ -282,7 +285,6 @@ end
 
 class CoinToss
   attr_accessor :call, :face_up, :winner
-  attr_reader = :player1, :player2
 
   def initialize(human, computer)
     @player1 = human
@@ -428,7 +430,7 @@ class TTTGame
       break if points > 0 && points <= 5
       prompt(fetch_yaml('not_valid'))
     end
-    @@winning_points = points    
+    @@winning_points = points
   end
 
   # display methods
@@ -440,7 +442,7 @@ class TTTGame
 
   def display_win_condition
     puts
-    prompt("#{fetch_yaml('win_condition1')} #{@@winning_points} " +
+    prompt("#{fetch_yaml('win_condition1')} #{@@winning_points} " \
            "#{fetch_yaml('win_condition2')}")
     puts
   end

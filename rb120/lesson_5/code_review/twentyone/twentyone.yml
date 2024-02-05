@@ -1,0 +1,35 @@
+pause: "Press 'Enter' to continue:"
+welcome: "Welcome to Twenty One!"
+rules: |
+  The goal of Twenty-One is to try to get as close to 21 as possible,
+  without going over. If you go over 21, it's a 'bust' and you lose.
+
+  Number cards are worth their face value and the face cards are each
+  worth 10.  The ace can be worth 1 or 11.
+
+  During your turn, 'hit' to ask for another card and 'stay' to close
+  out the hand.  As you think about whether you should risk another 'hit',
+  know that the dealer must 'hit' until their total is at least 17.
+
+  Whoever has the higher total without busting wins.
+points_intro: "You get to choose how many points this game is played to."
+winning_points?: "Choose the number of points necessary to win (between 1 and 5):"
+goodbye: "Thanks for playing Twenty One! Goodbye!"
+not_valid: "That is not a valid entry."
+dealer_name: "Your dealer today is "
+start_game: "Let's play! Dealing cards..."
+whose_hand: "'s hand:"
+human_name?: "Input player name:"
+human_turn: ", it is your turn."
+human_cards: "You have the following cards..."
+current_total: "...for a total of: "
+dealer_flop: "Dealer is showing a"
+hit?: "Would you like to (h)it or (s)tay?"
+bust: "It's a bust."
+round_to: " wins this round."
+tie: "It's a tie!"
+dealer_turn: "It is now the dealer's turn."
+dealer_cards: "Dealer has the following cards..."
+display_header: "Name           Score"
+display_line: "----------------------"
+winner: " wins the game!"

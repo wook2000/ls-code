@@ -2,7 +2,7 @@ module AdminMethods
   require 'yaml'
 
   MESSAGES = YAML.load_file('twentyone.yml')
-    
+
   def prompt(txt)
     puts "=> #{txt}"
     puts
@@ -24,6 +24,10 @@ end
 
 class Card
   SUITS = %w(H D S C)
+  SUITS_NAME = { 'H' => 'Hearts',
+                 'D' => 'Diamonds',
+                 'S' => 'Spades',
+                 'C' => 'Clubs' }
   FACES = %w(2 3 4 5 6 7 8 9 10 J Q K A)
 
   attr_reader :face, :suit
@@ -40,12 +44,7 @@ class Card
   end
 
   def suit_type
-    case suit
-    when 'H' then 'Hearts'
-    when 'D' then 'Diamonds'
-    when 'S' then 'Spades'
-    when 'C' then 'Clubs'
-    end
+    SUITS_NAME[suit]
   end
 
   def face_value
@@ -84,7 +83,7 @@ end
 
 class Player
   include Comparable
-  
+
   attr_accessor :hand, :score, :name, :stay
 
   def initialize
@@ -113,10 +112,10 @@ end
 
 class Human < Player
   include AdminMethods
-  
+
   def initialize
     super
-    prompt_name 
+    prompt_name
   end
 
   def game_reset
@@ -143,7 +142,7 @@ class Human < Player
       break if ['h', 's'].include? action
       prompt(fetch_yaml('not_valid'))
     end
-    self.stay = action == 's' ? true : false
+    self.stay = action == 's'
     !stay
   end
 end
@@ -153,7 +152,7 @@ class Computer < Player
 
   def initialize
     super
-    pick_name 
+    pick_name
   end
 
   def pick_name
@@ -173,12 +172,11 @@ end
 
 class Hand
   include Comparable
-  
-  attr_accessor :cards, :total
+
+  attr_accessor :cards, :card_sum
 
   def initialize
     @cards = []
-    @total = nil
   end
 
   def <=>(other)
@@ -186,29 +184,54 @@ class Hand
   end
 
   def total
-    total = 0
-    cards.each do |card|
-      case card.face
-      when 'A' then total += 11
-      when 'J', 'Q', 'K' then total += 10
-      else total += card.face.to_i
-      end
-    end
-    cards.select(&:ace?).count.times do
-      break if total <= 21
-      total -= 10
-    end
-    total
+    self.card_sum = 0
+    add_cards
+    account_for_aces
+    card_sum
   end
 
   def show
-    top_bottom, blank, suit_ln, face_ln = "", "", "", ""
+    reset_display
     cards.each do |card|
-      top_bottom += "  ------  "
-      blank += " |      | "
-      suit_ln += card.faced_up ? " | #{card.suit}    | " : " |      | "
-      face_ln += card.faced_up ? " |   #{card.face.rjust(2)} | " : " |      | "
+      suit = card.suit
+      face = card.face.rjust(2)
+      self.top_bottom += "  ------  "
+      self.blank += " |      | "
+      self.suit_ln += card.faced_up ? " | #{suit}    | " : " |      | "
+      self.face_ln += card.faced_up ? " |   #{face} | " : " |      | "
     end
+    display
+  end
+
+  private
+
+  attr_accessor :top_bottom, :blank, :suit_ln, :face_ln
+
+  def add_cards
+    cards.each do |card|
+      self.card_sum += case card.face
+                       when 'A' then 11
+                       when 'J', 'Q', 'K' then 10
+                       else card.face.to_i
+                       end
+    end
+  end
+
+  def account_for_aces
+    cards.select(&:ace?).count.times do
+      break if card_sum <= 21
+      self.card_sum -= 10
+    end
+  end
+
+  def reset_display
+    self.top_bottom = ""
+    self.blank = ""
+    self.suit_ln = ""
+    self.face_ln = ""
+  end
+
+  def display
     puts top_bottom
     puts blank
     puts suit_ln
@@ -224,7 +247,7 @@ class TwentyOneGame
   include AdminMethods
 
   @@winning_points = nil
-  
+
   def initialize
     clear
     display_welcome_message
@@ -241,7 +264,7 @@ class TwentyOneGame
   private
 
   attr_reader :human, :dealer, :deck
-  attr_accessor :winner
+  attr_accessor :winner, :human_total, :dealer_total, :human_bust, :dealer_bust
 
   def lets_play
     loop do
@@ -258,7 +281,7 @@ class TwentyOneGame
     @dealer = Computer.new
     human.game_reset
   end
-  
+
   def prompt_winning_points
     points = nil
     prompt(fetch_yaml('points_intro'))
@@ -274,6 +297,7 @@ class TwentyOneGame
   def play_game
     pause
     deal_and_play
+    capture_game_stats
     determine_winner
     winner.score += 1 unless winner.nil?
     display_points
@@ -323,11 +347,18 @@ class TwentyOneGame
     display_dealer_prompt_hand(player)
   end
 
+  def capture_game_stats
+    self.human_total = human.hand.total
+    self.dealer_total = dealer.hand.total
+    self.human_bust = human.bust?
+    self.dealer_bust = dealer.bust?
+  end
+
   def determine_winner
     self.winner = nil
-    if human.bust? || (human.hand < dealer.hand && !dealer.bust?)
+    if human_bust || (human_total < dealer_total && !dealer_bust)
       self.winner = dealer
-    elsif dealer.bust? || human.hand > dealer.hand
+    elsif dealer_bust || human_total > dealer_total
       self.winner = human
     end
     display_round_winner
@@ -398,7 +429,7 @@ class TwentyOneGame
   def display_cards_in_hand(player)
     player.hand.cards.each { |card| puts "- #{card}" }
     puts
-    prompt(fetch_yaml('current_total') + player.hand.total.to_s)    
+    prompt(fetch_yaml('current_total') + player.hand.total.to_s)
   end
 
   def display_dealer_prompt_dealer_initial_hand
@@ -407,7 +438,6 @@ class TwentyOneGame
 
   def display_bust
     prompt(fetch_yaml('bust'))
-    # pause
   end
 
   def display_dealer_prompt_dealer_turn
@@ -416,7 +446,7 @@ class TwentyOneGame
 
   def display_dealer_prompt_dealer_hand
     prompt(fetch_yaml('dealer_cards'))
-    display_cards_in_hand(dealer)    
+    display_cards_in_hand(dealer)
   end
 
   def display_round_winner
@@ -431,11 +461,15 @@ class TwentyOneGame
   def display_points
     prompt(fetch_yaml('display_header'))
     prompt(fetch_yaml('display_line'))
-    prompt(human.name.ljust(17) + human.score.to_s)
-    prompt(dealer.name.ljust(17) + dealer.score.to_s)
+    display_score(human)
+    display_score(dealer)
     puts
   end
-  
+
+  def display_score(player)
+    prompt(player.name.ljust(17) + player.score.to_s)
+  end
+
   def display_game_winner
     prompt(game_leader.name + fetch_yaml('winner'))
   end

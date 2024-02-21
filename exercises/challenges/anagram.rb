@@ -10,14 +10,12 @@
 
 **E
 
-
 **H
 - #match is the primary method
 - must override #match to apply to string instance variable
 - maybe combo of pop and delete?
 
 **D
-
 
 =end
 
@@ -32,7 +30,7 @@
 #     str_arr.each do |str|
 #       template = @word.downcase
 #       comparison = str.downcase
-#       next unless comparison.size == template.size && comparison != template      
+#       next unless comparison.size == template.size && comparison != template
 #       @word.size.times do
 #         comparison.sub!(template[-1], "")
 #         template.chop!
@@ -49,7 +47,7 @@ class Anagram
   end
 
   def match(arr)
-    arr.select { |str| str.downcase != @word && anagram?(str, @word)}
+    arr.select { |str| str.downcase != @word && anagram?(str, @word) }
   end
 
   private

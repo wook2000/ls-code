@@ -4,7 +4,8 @@
 - output: string value of either 'equilateral', 'isosceles', or 'scalene'
 - rules:
   - all sides must be of length > 0
-  - sum of lengths of any two sides must be greater than the length of the third side
+  - sum of lengths of any two sides must be greater than the length of
+    the third side
 
 **E
 - (2, 2, 2) => equilateral
@@ -40,9 +41,7 @@
 
 **A
 
-
 =end
-
 
 class Triangle
   def initialize(side1, side2, side3)
@@ -62,7 +61,7 @@ class Triangle
 
   def valid?
     length_valid = @sides.min > 0
-    shape_valid = (@sides.sum - @sides.max * 2) > 0
+    shape_valid = (@sides.sum - (@sides.max * 2)) > 0
     length_valid && shape_valid
   end
 end

@@ -7,7 +7,6 @@
   - if unequal length, use the shorter length for comparison
 
 **E
-- 
 
 **H
 - string value of strand provided to instantiate new DNA object
@@ -20,10 +19,9 @@
 
 =end
 
-
 class DNA
   def initialize(strand)
-    @strand = strand  
+    @strand = strand
   end
 
   def hamming_distance(distance)

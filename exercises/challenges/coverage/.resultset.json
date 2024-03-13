@@ -1,0 +1,34 @@
+{
+  "Minitest": {
+    "coverage": {
+      "/Users/wookcode/launch_school/ls_code/exercises/challenges/sandbox.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          null,
+          1,
+          4,
+          4,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1708727395
+  }
+}
